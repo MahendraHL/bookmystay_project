@@ -1,0 +1,56 @@
+/* PhotoGrid.css */
+.container {
+    text-align: center;
+    background-color: whitesmoke;
+    padding-bottom: 2%;
+    
+  }
+  .fluid-container {
+    width: 100% !important; 
+    max-width: none !important; 
+  }
+  
+  .title {
+    text-align: left;
+    font-size: 32px;
+    color: blue;
+    font-weight: bolder;
+    padding: 2% 0;
+  }
+  
+  .photo-container {
+    padding: 1%;
+  }
+  
+  .photo {
+    width: 100%;
+    height: 300px; /* Set a consistent height */
+    object-fit: cover; /* Ensure all images fit the same size */
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  .photo:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  
+  .col-style {
+    font-size: 24px;
+    color: blue;
+    font-weight: bolder;
+  }
+  
+  .fade-in {
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
