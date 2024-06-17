@@ -23,7 +23,7 @@ public class SubscriptionController {
 	@Autowired
 	private SubscriptionService subscriptionService;
 	
-	//--------------------------------Post Subscription------------------------------------
+//--------------------------------Post Subscription------------------------------------
 		@PostMapping("/subscription")
 		public ResponseEntity<CommonResponse<String>> getSubscribe(@RequestBody SubscribedDto dto) {
 			String subscribes = subscriptionService.fetchSubscribers(dto);

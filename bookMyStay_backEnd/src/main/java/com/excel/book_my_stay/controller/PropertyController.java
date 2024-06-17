@@ -103,7 +103,7 @@ public class PropertyController {
 					CommonResponse.<String>builder().data(id).isError(false).message("Location added succesfully").build());
 		}
 		
-//--------------------------------Post Property Url--------------------------------------
+//--------------------------------Post PropertyUrl(This is for future Enhancement)--------------------------------------
 		@PostMapping("/postpropertyurl")
 		public ResponseEntity<CommonResponse<String>> postPropertyUrls(@RequestBody PropertyUrlListDto dto) {
 			String propertyUrl = propertyInfoService.postPropertyUrl(dto);

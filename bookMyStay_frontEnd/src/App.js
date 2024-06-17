@@ -69,7 +69,9 @@ function App() {
             path="/HolidayInnBengaluruRacecourse"
             element={<HolidayInnBengaluruRacecourse />}
           />
-          <Route path="/GrandMercureMysuru" element={<GrandMercureMysuru />} />
+          <Route path="/GrandMercureMysuru" 
+          element={<GrandMercureMysuru />} 
+          />
           <Route
             path="/HotelDeepaComfortsMangalore"
             element={<HotelDeepaComfortsMangalore />}
@@ -82,7 +84,9 @@ function App() {
             path="/HotelSaiPalaceMangalore"
             element={<HotelSaiPalaceMangalore />}
           />
-          <Route path="/NaveenBeachResort" element={<NaveenBeachResort />} />
+          <Route path="/NaveenBeachResort" 
+          element={<NaveenBeachResort />} 
+          />
           <Route
             path="/NexstayPanchvatiComforts"
             element={<NexstayPanchvatiComforts />}
@@ -91,21 +95,33 @@ function App() {
             path="/RadissonVluPlazaHotelMysore"
             element={<RadissonVluPlazaHotelMysore />}
           />
-          <Route path="/RNSResidency" element={<RNSResidency />} />
-          <Route path="/ShangriLaBengaluru" element={<ShangriLaBengaluru />} />
-          <Route path="/SeaViewBeachResort" element={<SeaViewBeachResort />} />
+          <Route path="/RNSResidency" 
+          element={<RNSResidency />} 
+          />
+          <Route path="/ShangriLaBengaluru" 
+          element={<ShangriLaBengaluru />} 
+          />
+          <Route path="/SeaViewBeachResort" 
+          element={<SeaViewBeachResort />} 
+          />
           <Route
             path="/SheratonGrandBangalore"
             element={<SheratonGrandBangalore />}
           />
-          <Route path="/SouthernStarMysore" element={<SouthernStarMysore />} />
+          <Route path="/SouthernStarMysore" 
+          element={<SouthernStarMysore />} 
+          />
           <Route
             path="/TheLeelaPalaceBengaluru"
             element={<TheLeelaPalaceBengaluru />}
           />
-          <Route path="/TheOberoiBengaluru" element={<TheOberoiBengaluru />} />
-          <Route path="/VivantaMangalore" element={<VivantaMangalore />} />
-          <Route path="/BookingHotel" element={<BookingHotel />} />
+          <Route path="/TheOberoiBengaluru" 
+          element={<TheOberoiBengaluru />} 
+          />
+          <Route path="/VivantaMangalore" 
+          element={<VivantaMangalore />} />
+          <Route path="/BookingHotel" element={<BookingHotel />} 
+          />
           <Route path="/ListYourProperty" element={<ListYourProperty />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />

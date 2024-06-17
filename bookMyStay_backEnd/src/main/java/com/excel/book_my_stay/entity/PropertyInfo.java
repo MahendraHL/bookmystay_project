@@ -35,9 +35,6 @@ public class PropertyInfo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer propertyId;
 	
-//	@Column(unique = true)
-//	private String propertyId;
-	
 	private String contactPersonName;
 	
 	private String hotelName;
@@ -50,7 +47,6 @@ public class PropertyInfo {
 	private String email;
 	
 	private String phoneNumber;
-	
 	private Double price;
 	private Integer availableRooms;
 	private Boolean isAvailable;

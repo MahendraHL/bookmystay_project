@@ -14,7 +14,6 @@ import lombok.Setter;
 public class PropertyLocationDto {
 	
 	private Integer locationId;
-	
 	private Integer propertyId;
 
 }

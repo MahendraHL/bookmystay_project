@@ -17,7 +17,7 @@ public class FeedBackServiceImpl implements FeedBackService{
 	private FeedBackRepository feedBackRepository;
 
 
-	//--------------------------Add FeedBack-------------------------------------------
+//--------------------------Add FeedBack-------------------------------------------
 		@Override
 		public String postFeedBack(FeedBackDto dto) {
 
@@ -27,7 +27,7 @@ public class FeedBackServiceImpl implements FeedBackService{
 			return feeds.getEmail();
 		}
 
-		//-------------------------Fetch Feedback details-----------------------------------
+//-------------------------Fetch Feedback details(This is for future Enhancement)-----------------------------------
 		@Override
 		public List<FeedBackDto> fetchFeedBacks() {
 			

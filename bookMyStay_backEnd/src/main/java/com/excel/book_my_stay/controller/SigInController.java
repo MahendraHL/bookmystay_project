@@ -23,7 +23,7 @@ public class SigInController {
 	@Autowired
 	private SignInService signInService;
 	
-	//-------------------------------Sign-In-------------------------------------------------
+//-------------------------------Sign-In-------------------------------------------------
 	@PostMapping("/signin")
 	public ResponseEntity<CommonResponse<CustomerInfoDto>> signIn(@RequestBody CustomerInfoDto dto) {
 		CustomerInfoDto signIn = signInService.signIn(dto);

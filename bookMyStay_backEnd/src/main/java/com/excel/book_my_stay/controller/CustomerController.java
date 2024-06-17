@@ -23,7 +23,7 @@ public class CustomerController {
 	@Autowired
 	private CustomerInfoService customerInfoService;
 	
-	//------------------------------Post Customer------------------------------------------
+//------------------------------Post Customer/register------------------------------------------
 		@PostMapping("/postcustomer")
 		public ResponseEntity<CommonResponse<String>> postCustomer(@RequestBody CustomerInfoDto dto) {
 			String customerId = customerInfoService.addCustomerInfo(dto);

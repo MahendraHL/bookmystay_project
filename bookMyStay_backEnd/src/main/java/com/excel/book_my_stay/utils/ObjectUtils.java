@@ -23,8 +23,7 @@ public class ObjectUtils {
 		
 	}
 	
-	public static PropertyInfo propertyToEntity(PropertyInfoDto dto)
-	{
+	public static PropertyInfo propertyToEntity(PropertyInfoDto dto) {
 		return PropertyInfo.builder().propertyId(dto.getPropertyId())
 				.email(dto.getEmail()).contactPersonName(dto.getContactPersonName())
 				.hotelName(dto.getHotelName()).roomType(dto.getRoomType()).isAvailable(dto.getIsAvailable())
@@ -43,9 +42,7 @@ public class ObjectUtils {
 				.description(property.getDescription()).build();
 	}
 	
-	//property details update
 	public static PropertyInfo updateProperty(PropertyInfo propertyInfo, PropertyInfoDto dto) {
-		
 		propertyInfo.setContactPersonName(dto.getContactPersonName());
 		propertyInfo.setAvailableRooms(dto.getAvailableRooms());
 		propertyInfo.setEmail(dto.getEmail());
@@ -60,7 +57,6 @@ public class ObjectUtils {
 	
 	//location details post
 	public static Location dtoToEntity(LocationDto dto) {
-		
 		return Location.builder().locationId(dto.getLocationId()).place(dto.getPlace()).locationUrl(dto.getLocationUrl())
 				.build();
 	}
@@ -81,20 +77,17 @@ public class ObjectUtils {
 	}
 
 	public static Address adressToEntity(AddressDto dto) {
-		
 		return Address.builder().addressId(dto.getAddressId()).city(dto.getCity()).doorNo(dto.getDoorNo())
 				.landMark(dto.getLandMark()).pinCode(dto.getPinCode()).state(dto.getState()).street(dto.getStreet())
 				.build();
 	}
 
 	public static CustomerInfo dtoToEntity(CustomerInfoDto dto) {
-		
 		return CustomerInfo.builder().customerId(dto.getCustomerid()).email(dto.getEmail())
 				.password(dto.getPassword()).name(dto.getName()).phoneNumber(dto.getPhoneNumber()).build();
 	}
 
 	public static Booking dtoToEntity(BookingDto e) {
-		 
 		  return Booking.builder()
 				  .bookingId(e.getBookingId())
 				  .hotelName(e.getHotelName())
@@ -108,7 +101,6 @@ public class ObjectUtils {
 	    }
 
 	public static List<PropertyUrl> propertyUrlDtoToEntity(List<PropertyUrlDto> propertyurls) {
-
 		if(propertyurls == null) {
 			throw new IllegalArgumentException("There is no property url");
 		}
@@ -117,7 +109,6 @@ public class ObjectUtils {
 	}
 
 	public static Booking updateBooking(Booking booking, BookingDto dto) {
-		
 		booking.setIsCancelled(dto.getIsCancelled());
 		return booking;
 	}

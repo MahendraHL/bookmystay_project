@@ -27,7 +27,7 @@ public class FeedBackController {
 	@Autowired
 	private FeedBackService feedBackService;
 	
-	//---------------------------Post FeedBack--------------------------------------------
+//---------------------------Post FeedBack--------------------------------------------
 		@PostMapping("/postfeedback")
 		public ResponseEntity<CommonResponse<String>> postFeedBack(@RequestBody FeedBackDto dto) {
 			String feedBackId = feedBackService.postFeedBack(dto);
@@ -36,7 +36,7 @@ public class FeedBackController {
 					.isError(false).message(FEEDBACK_SUBMITTED_MESSAGE).build());
 		}
 
-	//----------------------------Get all FeedBack----------------------------------------
+//----------------------------Get all FeedBack(This is for future Enhancement)----------------------------------------
 		@GetMapping("/getfeedback")
 		public ResponseEntity<CommonResponse<List<FeedBackDto>>> getFeedBack() {
 			List<FeedBackDto> feedBacks = feedBackService.fetchFeedBacks();

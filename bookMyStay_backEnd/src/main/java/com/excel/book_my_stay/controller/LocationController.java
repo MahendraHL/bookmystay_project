@@ -30,7 +30,7 @@ public class LocationController {
 	@Autowired
 	private LocationService locationService;
 	
-	//-------------------------------Get Location By Id---------------------------------------
+//-------------------------------Get Location By Id---------------------------------------
 		@GetMapping("/locationid")
 		public ResponseEntity<CommonResponse<Integer>> getLocationIdByName(@RequestParam String place) {
 			Integer id=locationService.fetchLocationIdbyPlace(place);
@@ -39,7 +39,7 @@ public class LocationController {
 			
 		}
 		
-		//-----------------------------Post Location--------------------------------------------
+//-----------------------------Post Location--------------------------------------------
 		@PostMapping("/postlocation")
 		public ResponseEntity<CommonResponse<String>> postLocation(@RequestBody LocationDto dto) {
 			String locationId = locationService.addLocation(dto);
@@ -47,7 +47,7 @@ public class LocationController {
 					.isError(false).message(LOCATION_SAVED_MESSAGE).build());
 		}
 		
-		//----------------------------Get All Location-----------------------------------------
+//----------------------------Get All Location-----------------------------------------
 		@GetMapping("/getlocation")
 		public ResponseEntity<CommonResponse<List<LocationDto>>> getLocation() {
 			List<LocationDto> locationId = locationService.fetchLocation();
@@ -55,7 +55,7 @@ public class LocationController {
 					.data(locationId).message(LOCATION_DETAILS_FETCHED_MESSAGE).build());
 		}
 		
-		//-----------------------------Update Location-----------------------------------------
+//-----------------------------Update Location-----------------------------------------
 		@PutMapping("/putlocation")
 		public ResponseEntity<CommonResponse<String>> updateLocation(@RequestBody LocationDto dto) {
 			String updateLocationDto = locationService.updateLocation(dto);

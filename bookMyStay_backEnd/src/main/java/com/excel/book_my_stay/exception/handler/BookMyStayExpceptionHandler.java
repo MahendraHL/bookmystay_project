@@ -15,7 +15,6 @@ import com.excel.book_my_stay.exception.InvalidPropertyException;
 import com.excel.book_my_stay.exception.InvalidPropertyUrlException;
 import com.excel.book_my_stay.exception.InvalidSignUpException;
 
-
 @RestControllerAdvice
 public class BookMyStayExpceptionHandler {
 	

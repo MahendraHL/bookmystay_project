@@ -18,7 +18,7 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 	@Autowired
 	private SubscriptionRepository subscriptionRepository;
 
-	//-------------------------add Subscribers-------------------------------------------
+//-------------------------add Subscribers-------------------------------------------
 		@Override
 		public String fetchSubscribers(SubscribedDto dto) {
 			Optional<Subscribed> optional = subscriptionRepository.findByEmailId(dto.getEmailId());
