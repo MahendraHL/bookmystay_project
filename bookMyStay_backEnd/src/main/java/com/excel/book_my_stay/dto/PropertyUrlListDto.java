@@ -16,7 +16,6 @@ import lombok.Setter;
 public class PropertyUrlListDto {
 
 	private Integer propertyId;
-
 	private List<PropertyUrlDto> propertyUrls;
 
 }

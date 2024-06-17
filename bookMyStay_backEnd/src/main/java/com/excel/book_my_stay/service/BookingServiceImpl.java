@@ -36,22 +36,17 @@ public class BookingServiceImpl implements BookingService{
 	@Autowired
 	private BookingRespository bookingRespository;
 	
-	//----------------------------add Booking----------------------------------------------
+//----------------------------add Booking----------------------------------------------
 		@Override
 		public String postBooking(BookingDto dto) {
-//			Optional<PropertyInfo> propOptional =propertyRepository
-//					.findByHotelNameContainingIgnoreCase(dto.getHotelName());
 			Optional<CustomerInfo> customerOptional = customerRepository.findByEmail(dto.getEmail());
 			Optional<PropertyInfo> propId=propertyRepository.findByPropertyId(dto.getPropertyId());
 			if(customerOptional.isPresent() && propId.isPresent()) {
-//				PropertyInfo prop = propOptional.get();
 				CustomerInfo cust = customerOptional.get();
 				PropertyInfo id = propId.get();
 				Booking bookings = ObjectUtils.dtoToEntity(dto);
-//				prop.getBookings().add(bookings);
 				cust.getBookings().add(bookings);
 				id.getBookings().add(bookings);
-//				bookings.setProperty(prop);
 				bookings.setCustomer(cust);
 				bookings.setProperty(id);
 				customerRepository.save(cust).getCustomerId();
@@ -60,7 +55,7 @@ public class BookingServiceImpl implements BookingService{
 			throw new InvalidBookingException(INVALID_BOOKING_INFO_MESSAGE);
 		}
 
-		//-------------------------Cancel Booking-----------------------------------------------
+//-------------------------Cancel Booking-----------------------------------------------
 		@Override
 		public String deleteBooking(BookingDto dto) {
 			Optional<Booking> bookingInfo = bookingRespository.findById(dto.getBookingId());
@@ -74,6 +69,7 @@ public class BookingServiceImpl implements BookingService{
 			throw new InvalidBookingCancellationException(INVALID_BOOKING_CANCELLATION_MESSAGE);
 		}
 
+//-----------------------------get booking details by customer id----------------------------
 		@Override
 		public List<BookingDto> fetchBookingDetails(Integer customerId) {
 			List<Booking> booking = bookingRespository.findByCustomerCustomerId(customerId);

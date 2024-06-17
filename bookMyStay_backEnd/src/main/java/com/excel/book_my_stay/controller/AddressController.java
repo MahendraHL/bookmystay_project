@@ -24,7 +24,7 @@ public class AddressController {
 	@Autowired
 	private AddressService addressService;
 	
-	//---------------------------Post Addresss-----------------------------------------------
+//---------------------------Post Address-----------------------------------------------
 		@PostMapping("/postaddress")
 		public ResponseEntity<CommonResponse<String>> postAddress(@RequestBody AddressDto dto) {
 			String addressId = addressService.addAddress(dto);

@@ -38,9 +38,7 @@ public class Booking {
 	private LocalDate checkOutDate;
 	private Integer noOfPerson;
 	private Boolean isCancelled;
-	
 	private String hotelName;
-	
 	private String email;
 	
 	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)

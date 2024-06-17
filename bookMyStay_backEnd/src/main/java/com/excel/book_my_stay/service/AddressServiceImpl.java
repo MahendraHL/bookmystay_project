@@ -20,7 +20,7 @@ public class AddressServiceImpl implements AddressService{
 	@Autowired
 	private PropertyRepository propertyRepository;
 
-	//-------------------------add address details--------------------------------------------
+//-------------------------add address details(This is for future Enhancement)--------------------------------------------
 		@Override
 		public String addAddress(AddressDto dto) {
 			Optional<PropertyInfo> optionalProperty = propertyRepository.findByPropertyId(dto.getPropertyId());

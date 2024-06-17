@@ -18,7 +18,7 @@ public class CustomerInfoServiceImpl implements CustomerInfoService{
 	@Autowired
 	private CustomerRepository customerRepository;
 	
-	//----------------------add customer/register-----------------------------------------
+//----------------------add customer/register-----------------------------------------
 		@Override
 		public String addCustomerInfo(CustomerInfoDto dto) {
 			if(!customerRepository.findByEmail(dto.getEmail()).isPresent())

@@ -32,7 +32,7 @@ public class BookingController {
 	@Autowired
 	private BookingService bookingService;
 	
-	//-------------------------------Post Booking-------------------------------------------
+//-------------------------------Post Booking-------------------------------------------
 		@PostMapping("/postbooking")
 		public ResponseEntity<CommonResponse<String>> postBooking(@RequestBody BookingDto dto) {
 			String booking = bookingService.postBooking(dto);
@@ -40,7 +40,7 @@ public class BookingController {
 					CommonResponse.<String>builder().data(booking).isError(false).message(BOOKING_SAVED_MESSAGE).build());
 		}
 		
-		//--------------------------------Update Cancel Booking----------------------------------
+//--------------------------------Update Cancel Booking----------------------------------
 		@PutMapping("/cancelbooking")
 		public ResponseEntity<CommonResponse<String>> cancelBooking(@RequestBody BookingDto dto) {
 			String bookingDto = bookingService.deleteBooking(dto);
@@ -48,6 +48,7 @@ public class BookingController {
 					.isError(false).message(BOOKING_CANCEL_MESSAGE).build());
 		}
 		
+//--------------------------get booking by customer id-------------------------------------
 		@GetMapping("/getbooking/{customerId}")
 		public ResponseEntity<CommonResponse<List<BookingDto>>> getBookingDetails(@PathVariable Integer customerId){
 			List<BookingDto> booking = bookingService.fetchBookingDetails(customerId);

@@ -34,6 +34,7 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 	@Autowired
 	private LocationRepository locationRepository;
 	
+//-----------------------------adding property details--------------------------------------
 	@Override
 	public String addPropertyInfo(PropertyInfoDto dto) 
 	{
@@ -50,7 +51,7 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 		throw new DuplicatePropertyException(DUPLICATE_PROPERTY_MESSAGE);
 	}
 
-	//----------------------------fetch propertyInfo by Id-------------------------------------
+//----------------------------fetch propertyInfo by Id-------------------------------------
 		@Override
 		public PropertyInfoDto fetchPropertyInfoById(PropertyInfoDto dto) {
 			Optional<PropertyInfo> info = propertyRepository.findByPropertyId(dto.getPropertyId());
@@ -61,7 +62,7 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 			throw new InvalidPropertyException(INVALID_PROPERTY_MESSAGE);
 		}
 
-		//-------------------------------fetch property name by location---------------------------
+//-------------------------------fetch property name by location---------------------------
 		@Override
 		public List<String> fetchPropertyNamesByLocation(Integer locationId) {
 
@@ -72,7 +73,7 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 		    throw new InvalidPropertyException(INVALID_PROPERTY_MESSAGE);
 		}
 
-		//----------------------------fetch propertyinfo by id-----------------------------------
+//----------------------------fetch property info by hotel name-----------------------------------
 		@Override
 		public PropertyDescriptionDto fetchPropertyInfoById(String hotelName) {
 			Optional<PropertyInfo> optional =propertyRepository.findByHotelNameContainingIgnoreCase(hotelName);
@@ -88,7 +89,7 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 			throw new InvalidPropertyException(INVALID_PROPERTY_MESSAGE);
 		}
 
-		//------------------------fetch property description---------------------------------
+//------------------------fetch property description---------------------------------
 		@Override
 		public List<PropertyDescriptionDto> fetchPropertyDescription(Integer locationId) {
 			
@@ -102,7 +103,7 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 			    throw new InvalidPropertyException(INVALID_PROPERTY_MESSAGE);
 		}
 
-	//-----------------------------update property details-------------------------------
+//-----------------------------update property details(This is for future Enhancement)-------------------------------
 		@Override
 		public String updateProperty(PropertyInfoDto dto) {
 			Optional<PropertyInfo> optional = propertyRepository.findByPropertyId(dto.getPropertyId());
@@ -115,7 +116,7 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 			throw new InvalidPropertyException(INVALID_PROPERTY_MESSAGE);
 		}
 
-		//---------------------------add location id to property---------------------------------
+//---------------------------add location id to property---------------------------------
 		@Override
 		public String updatePropertyLocation(PropertyLocationDto dto) {
 
@@ -131,7 +132,7 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 			return "Location details";
 		}
 
-		//------------------------post PropertyUrl---------------------------------------------
+//------------------------post PropertyUrl(This is for future Enhancement)---------------------------------------------
 		@Override
 		public String postPropertyUrl(PropertyUrlListDto dto) {
 
@@ -147,7 +148,7 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 			throw new InvalidPropertyUrlException(INVALID_URL_MESSAGE);
 		}
 
-		//-----------------------------fetch propertyinfo by hotel name-------------------------
+//-----------------------------fetch property info by hotel name-------------------------
 		@Override
 		public List<PropertyInfoDto> fetchPropertyInfo(String hotelName) {
 			List<PropertyInfoDto> collect = propertyRepository.findAll().stream()
@@ -160,7 +161,7 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 			return collect;
 		}
 
-		//----------------------------Fetch PropertyInfo-------------------------------------
+//----------------------------Fetch PropertyInfo-------------------------------------
 		@Override
 		public List<PropertyInfoDto> fetchPropertyInfo() {
 			

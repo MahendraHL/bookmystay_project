@@ -23,7 +23,7 @@ public class LocationServiceImpl implements LocationService{
 	private LocationRepository locationRepository;
 	
 	
-	//---------------------------fetch location id by place---------------------------------
+//---------------------------fetch location id by place---------------------------------
 		@Override
 		public Integer fetchLocationIdbyPlace(String place) {
 			Optional<Location> optional = locationRepository.findByPlace(place);
@@ -34,7 +34,7 @@ public class LocationServiceImpl implements LocationService{
 			throw new InvalidLocationException(INVALID_LOCATION_MESSAGE);
 		}
 
-		//-----------------------------adding location details---------------------------------
+//-----------------------------adding location details---------------------------------
 		@Override
 		public String addLocation(LocationDto dto){
 			Optional<Location> optional= locationRepository.findByPlace(dto.getPlace());
@@ -48,13 +48,13 @@ public class LocationServiceImpl implements LocationService{
 			
 		}
 
-		//---------------------------get all location details---------------------------------
+//---------------------------get all location details---------------------------------
 		@Override
 		public List<LocationDto> fetchLocation() {
 			return locationRepository.findAll().stream().map(ObjectUtils::locationToDto).toList();
 		}
 
-		//---------------------------update location details-----------------------------------
+//---------------------------update location details-----------------------------------
 		@Override
 		public String updateLocation(LocationDto dto) {
 			Optional<Location> optionalLocation = locationRepository.findByLocationId(dto.getLocationId());

@@ -22,7 +22,7 @@ public class SignInServiceImpl implements SignInService{
 	@Autowired
 	private CustomerRepository customerRepository;
 
-	//------------------------------------Login-------------------------------------------
+//------------------------------------Login-------------------------------------------
 	@Override
 	public CustomerInfoDto signIn(CustomerInfoDto dto) {
 		Optional<CustomerInfo> email = customerRepository.findByEmail(dto.getEmail());

@@ -16,6 +16,5 @@ import lombok.Setter;
 public class PropertyInfoListDto {
 
 	private String locationId;
-
 	private List<PropertyInfoDto> properties;
 }

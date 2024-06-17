@@ -14,8 +14,6 @@ import lombok.Setter;
 public class LocationDto {
 
 	private Integer locationId;
-	
 	private String place;
-	
 	private String locationUrl;
 }
