@@ -7,17 +7,17 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Button from 'react-bootstrap/Button';
 import axios from "axios";
 
-var colstyle1={
-  textAlign:"center",
-  padding:"5%"
+var colstyle1 = {
+  textAlign: "center",
+  padding: "5%"
 }
-var colstyle2={
-  textAlign:"center",
-  padding:"5%"
+var colstyle2 = {
+  textAlign: "center",
+  padding: "5%"
 }
-var tstyle={
-  backgroundColor:"transparent",
-  border:"1px solid black"
+var tstyle = {
+  backgroundColor: "transparent",
+  border: "1px solid black"
 }
 
 
@@ -36,31 +36,31 @@ function Feedback() {
       event.stopPropagation();
       setValidated(true);
     }
-    else{
-    try {
-      const res = await axios.post("http://localhost:8080/api/v1/bookmystay/postfeedback", {
-       name, email, mobileNumber, message
-      });
-      
-      if (res.data.message) {
-        setError(res.data.message);
-        alert(res.data.message);
-        setName('');
-        setEmail('');
-        setMobileNumber('');
-        setMessage('');
-        setValidated(false); // Reset validated state after successful submission
+    else {
+      try {
+        const res = await axios.post("http://localhost:8080/api/v1/bookmystay/postfeedback", {
+          name, email, mobileNumber, message
+        });
 
+        if (res.data.message) {
+          setError(res.data.message);
+          alert(res.data.message);
+          setName('');
+          setEmail('');
+          setMobileNumber('');
+          setMessage('');
+          setValidated(false); // Reset validated state after successful submission
+
+        }
+      } catch (error) {
+        console.error("Error to subscribe:", error);
+        setError('Please try again later.');
       }
-    } catch (error) {
-      console.error("Error to subscribe:", error);
-      setError('Please try again later.');
     }
-  }
   };
 
   return (
-    <Container style={{backgroundColor:"whitesmoke"}}>
+    <Container style={{ backgroundColor: "whitesmoke" }}>
       <Row style={{ margin: "10%" }}>
         <Col style={colstyle1}>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -81,7 +81,7 @@ function Feedback() {
             </Form.Control.Feedback>
             <br />
             <FloatingLabel controlId="floatingTextarea2" label="Message">
-              <Form.Control as="textarea" placeholder="Leave a comment here" value={message} onChange={(e) => setMessage(e.target.value)} style={{ height: "100px", backgroundColor:"transparent", border:"1px solid black"}} required />
+              <Form.Control as="textarea" placeholder="Leave a comment here" value={message} onChange={(e) => setMessage(e.target.value)} style={{ height: "100px", backgroundColor: "transparent", border: "1px solid black" }} required />
               <Form.Control.Feedback type="invalid">
                 Please provide a Comments.
               </Form.Control.Feedback>
