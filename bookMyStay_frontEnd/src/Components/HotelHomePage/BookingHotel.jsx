@@ -26,7 +26,7 @@ const BookingHotel = () => {
   const hotelName = sessionStorage.getItem("hotelName");
   const propertyId = sessionStorage.getItem("propertyId");
   const email = sessionStorage.getItem("email");
-
+  console.log(propertyId);
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
     event.preventDefault();

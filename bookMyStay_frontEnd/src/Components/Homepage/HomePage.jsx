@@ -29,6 +29,7 @@ const HomePage = () => {
       setIsLoggedIn(false);
     }
   }, [location.state]);
+    
 
   const getImageSrc = (hotelName) => {
     if (hotelName === "Grand Mercure Mysore") {
