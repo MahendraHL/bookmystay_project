@@ -18,7 +18,6 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState("");
   const [validated, setValidated] = useState(false);
   const [error, setError] = useState("");
-  const [logState, setIsLogState] = useState(false);
   const navigate = useNavigate();
 
   const fetchData = async (email, password) => {
