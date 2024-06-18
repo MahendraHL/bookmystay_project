@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import HotelCarouselImages from "../HotelCarouselImages";
