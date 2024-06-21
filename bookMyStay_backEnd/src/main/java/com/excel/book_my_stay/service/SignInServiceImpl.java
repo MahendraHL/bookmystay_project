@@ -6,6 +6,7 @@ import static com.excel.book_my_stay.constant.BookMyStayConstant.LOGIN_FAILED_ME
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.excel.book_my_stay.dto.CustomerInfoDto;
@@ -22,13 +23,15 @@ public class SignInServiceImpl implements SignInService{
 	@Autowired
 	private CustomerRepository customerRepository;
 
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 //------------------------------------Login-------------------------------------------
 	@Override
 	public CustomerInfoDto signIn(CustomerInfoDto dto) {
 		Optional<CustomerInfo> email = customerRepository.findByEmail(dto.getEmail());
 		if(email.isPresent()) {
 			CustomerInfo info=email.get();
-			if(info.getPassword().equals(dto.getPassword())) {
+			if(bCryptPasswordEncoder.matches(dto.getPassword(), info.getPassword())) {
 				return ObjectUtils.customerInfoTodto(info);
 			}
 			else {

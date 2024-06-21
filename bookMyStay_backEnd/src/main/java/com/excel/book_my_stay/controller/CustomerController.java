@@ -24,6 +24,7 @@ public class CustomerController {
 	private CustomerInfoService customerInfoService;
 	
 //------------------------------Post Customer/register------------------------------------------
+		
 		@PostMapping("/postcustomer")
 		public ResponseEntity<CommonResponse<String>> postCustomer(@RequestBody CustomerInfoDto dto) {
 			String customerId = customerInfoService.addCustomerInfo(dto);
