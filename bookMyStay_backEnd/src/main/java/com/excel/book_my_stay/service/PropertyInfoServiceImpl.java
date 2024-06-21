@@ -35,6 +35,7 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 	private LocationRepository locationRepository;
 	
 //-----------------------------adding property details--------------------------------------
+	
 	@Override
 	public String addPropertyInfo(PropertyInfoDto dto) 
 	{
@@ -52,31 +53,36 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 	}
 
 //----------------------------fetch propertyInfo by Id-------------------------------------
+		
 		@Override
 		public PropertyInfoDto fetchPropertyInfoById(PropertyInfoDto dto) {
 			Optional<PropertyInfo> info = propertyRepository.findByPropertyId(dto.getPropertyId());
 			if(info.isPresent()) {
 				PropertyInfo id = info.get();
-				return ObjectUtils.propertyUrlDtoToEntity(id);
+				return ObjectUtils.entityToDto(id);
 			}
 			throw new InvalidPropertyException(INVALID_PROPERTY_MESSAGE);
 		}
 
 //-------------------------------fetch property name by location---------------------------
+		
 		@Override
 		public List<String> fetchPropertyNamesByLocation(Integer locationId) {
 
-		    List<PropertyInfo> properties = propertyRepository.findByLocationLocationId(locationId);
+		    List<PropertyInfo> properties = propertyRepository
+		    				.findByLocationLocationId(locationId);
 		    if (!properties.isEmpty()) {
 		        return properties.stream().map(PropertyInfo::getHotelName).toList();
 		    }
 		    throw new InvalidPropertyException(INVALID_PROPERTY_MESSAGE);
 		}
 
-//----------------------------fetch property info by hotel name-----------------------------------
+//----------------------------fetch property info by hotel name------------------------
+		
 		@Override
 		public PropertyDescriptionDto fetchPropertyInfoById(String hotelName) {
-			Optional<PropertyInfo> optional =propertyRepository.findByHotelNameContainingIgnoreCase(hotelName);
+			Optional<PropertyInfo> optional =propertyRepository
+							.findByHotelNameContainingIgnoreCase(hotelName);
 			if(optional.isPresent()) {
 				PropertyInfo property=optional.get();
 				PropertyDescriptionDto propertyDescriptionDto = new PropertyDescriptionDto();
@@ -90,23 +96,28 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 		}
 
 //------------------------fetch property description---------------------------------
+		
 		@Override
 		public List<PropertyDescriptionDto> fetchPropertyDescription(Integer locationId) {
 			
-			 List<PropertyInfo> properties = propertyRepository.findByLocationLocationId(locationId);
+			 List<PropertyInfo> properties = propertyRepository
+					 				.findByLocationLocationId(locationId);
 			    if (!properties.isEmpty()) {
 			    	 return properties.stream()
 	                         .map(property -> PropertyDescriptionDto.builder()
-	                        		 .hotelName(property.getHotelName()).description(property.getDescription()).build())
+	                        		 .hotelName(property.getHotelName())
+	                        		 .description(property.getDescription()).build())
 	                         .collect(Collectors.toList());
 			    }
 			    throw new InvalidPropertyException(INVALID_PROPERTY_MESSAGE);
 		}
 
-//-----------------------------update property details(This is for future Enhancement)-------------------------------
+//-----------------------------update property details(This is for future Enhancement)-----------
+		
 		@Override
 		public String updateProperty(PropertyInfoDto dto) {
-			Optional<PropertyInfo> optional = propertyRepository.findByPropertyId(dto.getPropertyId());
+			Optional<PropertyInfo> optional = propertyRepository
+						.findByPropertyId(dto.getPropertyId());
 			if (optional.isPresent()) {
 				PropertyInfo propertyInfo = optional.get();
 				propertyInfo = ObjectUtils.updateProperty(propertyInfo, dto);
@@ -117,11 +128,14 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 		}
 
 //---------------------------add location id to property---------------------------------
+		
 		@Override
 		public String updatePropertyLocation(PropertyLocationDto dto) {
 
-			Optional<PropertyInfo> propOptional = propertyRepository.findByPropertyId(dto.getPropertyId());
-			Optional<Location> locOptional = locationRepository.findByLocationId(dto.getLocationId());
+			Optional<PropertyInfo> propOptional = propertyRepository
+					.findByPropertyId(dto.getPropertyId());
+			Optional<Location> locOptional = locationRepository
+					.findByLocationId(dto.getLocationId());
 			if (propOptional.isPresent() && locOptional.isPresent()) {
 				Location loc = locOptional.get();
 				PropertyInfo prop = propOptional.get();
@@ -132,14 +146,17 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 			return "Location details";
 		}
 
-//------------------------post PropertyUrl(This is for future Enhancement)---------------------------------------------
+//------------------------post PropertyUrl(This is for future Enhancement)--------------------
+		
 		@Override
 		public String postPropertyUrl(PropertyUrlListDto dto) {
 
-			Optional<PropertyInfo> optional =propertyRepository.findByPropertyId(dto.getPropertyId());
+			Optional<PropertyInfo> optional =propertyRepository
+					.findByPropertyId(dto.getPropertyId());
 			if(optional.isPresent()) {
 				PropertyInfo info =optional.get();
-				List<PropertyUrl> propertyUrls =ObjectUtils.propertyUrlDtoToEntity(dto.getPropertyUrls());
+				List<PropertyUrl> propertyUrls =ObjectUtils
+						.propertyUrlDtoToEntity(dto.getPropertyUrls());
 				info.setUrls(propertyUrls);
 				propertyUrls.stream().forEach(x->x.setProperty(info));
 				propertyRepository.save(info).getPropertyId();
@@ -149,19 +166,22 @@ public class PropertyInfoServiceImpl implements PropertyInfoService{
 		}
 
 //-----------------------------fetch property info by hotel name-------------------------
+		
 		@Override
 		public List<PropertyInfoDto> fetchPropertyInfo(String hotelName) {
 			List<PropertyInfoDto> collect = propertyRepository.findAll().stream()
 					.map(ObjectUtils::entityToDto).collect(Collectors.toList());
 			if(hotelName != null) {
 				 return collect.stream()
-		                    .filter(b -> b.getHotelName().toLowerCase().contains(hotelName.toLowerCase()))
+		                    .filter(b -> b.getHotelName()
+		                    .toLowerCase().contains(hotelName.toLowerCase()))
 		                    .collect(Collectors.toList());
 			}
 			return collect;
 		}
 
 //----------------------------Fetch PropertyInfo-------------------------------------
+		
 		@Override
 		public List<PropertyInfoDto> fetchPropertyInfo() {
 			

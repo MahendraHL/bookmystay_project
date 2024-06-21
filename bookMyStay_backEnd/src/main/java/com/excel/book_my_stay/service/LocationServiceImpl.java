@@ -24,6 +24,7 @@ public class LocationServiceImpl implements LocationService{
 	
 	
 //---------------------------fetch location id by place---------------------------------
+		
 		@Override
 		public Integer fetchLocationIdbyPlace(String place) {
 			Optional<Location> optional = locationRepository.findByPlace(place);
@@ -35,11 +36,15 @@ public class LocationServiceImpl implements LocationService{
 		}
 
 //-----------------------------adding location details---------------------------------
+		
 		@Override
 		public String addLocation(LocationDto dto){
 			Optional<Location> optional= locationRepository.findByPlace(dto.getPlace());
 			if(!optional.isPresent()) {
-				Location location = Location.builder().place(dto.getPlace()).locationUrl(dto.getLocationUrl()).build();
+				Location location = Location.builder()
+						.place(dto.getPlace())
+						.locationUrl(dto.getLocationUrl())
+						.build();
 				Location save = locationRepository.save(location);
 				
 				return String.valueOf(save.getLocationId());
@@ -49,15 +54,18 @@ public class LocationServiceImpl implements LocationService{
 		}
 
 //---------------------------get all location details---------------------------------
+		
 		@Override
 		public List<LocationDto> fetchLocation() {
 			return locationRepository.findAll().stream().map(ObjectUtils::locationToDto).toList();
 		}
 
 //---------------------------update location details-----------------------------------
+		
 		@Override
 		public String updateLocation(LocationDto dto) {
-			Optional<Location> optionalLocation = locationRepository.findByLocationId(dto.getLocationId());
+			Optional<Location> optionalLocation = locationRepository
+							.findByLocationId(dto.getLocationId());
 			if(optionalLocation.isPresent())
 			{
 				Location location = optionalLocation.get();
