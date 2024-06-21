@@ -24,6 +24,7 @@ public class SigInController {
 	private SignInService signInService;
 	
 //-------------------------------Sign-In-------------------------------------------------
+	
 	@PostMapping("/signin")
 	public ResponseEntity<CommonResponse<CustomerInfoDto>> signIn(@RequestBody CustomerInfoDto dto) {
 		CustomerInfoDto signIn = signInService.signIn(dto);

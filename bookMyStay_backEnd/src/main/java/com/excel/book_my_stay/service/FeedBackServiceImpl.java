@@ -18,6 +18,7 @@ public class FeedBackServiceImpl implements FeedBackService{
 
 
 //--------------------------Add FeedBack-------------------------------------------
+		
 		@Override
 		public String postFeedBack(FeedBackDto dto) {
 
@@ -27,13 +28,18 @@ public class FeedBackServiceImpl implements FeedBackService{
 			return feeds.getEmail();
 		}
 
-//-------------------------Fetch Feedback details(This is for future Enhancement)-----------------------------------
+//-------------------------Fetch Feedback details(This is for future Enhancement)----------
+		
 		@Override
 		public List<FeedBackDto> fetchFeedBacks() {
 			
 			return feedBackRepository
-					.findAll().stream().map(e-> FeedBackDto.builder().feedBackId(e.getFeedBackId()).name(e.getName())
-							.email(e.getEmail()).mobileNumber(e.getMobileNumber()).message(e.getMessage()).build())
-					.toList();
+					.findAll().stream().map(e-> FeedBackDto.builder()
+							.feedBackId(e.getFeedBackId())
+							.name(e.getName())
+							.email(e.getEmail())
+							.mobileNumber(e.getMobileNumber())
+							.message(e.getMessage())
+							.build()).toList();
 		}
 }
