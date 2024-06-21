@@ -24,6 +24,7 @@ public class SubscriptionController {
 	private SubscriptionService subscriptionService;
 	
 //--------------------------------Post Subscription------------------------------------
+		
 		@PostMapping("/subscription")
 		public ResponseEntity<CommonResponse<String>> getSubscribe(@RequestBody SubscribedDto dto) {
 			String subscribes = subscriptionService.fetchSubscribers(dto);

@@ -3,6 +3,7 @@ package com.excel.book_my_stay.service;
 import static com.excel.book_my_stay.constant.BookMyStayConstant.INVALID_SIGNUP_MESSAGE;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -18,12 +19,17 @@ public class CustomerInfoServiceImpl implements CustomerInfoService{
 	@Autowired
 	private CustomerRepository customerRepository;
 	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+	
 //----------------------add customer/register-----------------------------------------
+		
 		@Override
 		public String addCustomerInfo(CustomerInfoDto dto) {
-			if(!customerRepository.findByEmail(dto.getEmail()).isPresent())
-			{
+			if(!customerRepository.findByEmail(dto.getEmail()).isPresent()){
 				CustomerInfo customerInfo = ObjectUtils.dtoToEntity(dto);
+				customerInfo.setPassword(bCryptPasswordEncoder.encode(dto.getPassword()));
 				CustomerInfo customer = customerRepository.save(customerInfo);
 				customer.getCustomerId();
 				return "add customer";

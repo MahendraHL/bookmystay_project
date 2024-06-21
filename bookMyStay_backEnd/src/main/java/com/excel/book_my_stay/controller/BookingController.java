@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.excel.book_my_stay.dto.BookingDto;
-import com.excel.book_my_stay.dto.BookingListDto;
-import com.excel.book_my_stay.dto.PropertyDescriptionDto;
 import com.excel.book_my_stay.response.CommonResponse;
 import com.excel.book_my_stay.service.BookingService;
 
@@ -33,6 +30,7 @@ public class BookingController {
 	private BookingService bookingService;
 	
 //-------------------------------Post Booking-------------------------------------------
+		
 		@PostMapping("/postbooking")
 		public ResponseEntity<CommonResponse<String>> postBooking(@RequestBody BookingDto dto) {
 			String booking = bookingService.postBooking(dto);
@@ -41,6 +39,7 @@ public class BookingController {
 		}
 		
 //--------------------------------Update Cancel Booking----------------------------------
+		
 		@PutMapping("/cancelbooking")
 		public ResponseEntity<CommonResponse<String>> cancelBooking(@RequestBody BookingDto dto) {
 			String bookingDto = bookingService.deleteBooking(dto);
@@ -49,6 +48,7 @@ public class BookingController {
 		}
 		
 //--------------------------get booking by customer id-------------------------------------
+		
 		@GetMapping("/getbooking/{customerId}")
 		public ResponseEntity<CommonResponse<List<BookingDto>>> getBookingDetails(@PathVariable Integer customerId){
 			List<BookingDto> booking = bookingService.fetchBookingDetails(customerId);
