@@ -11,7 +11,7 @@ const NavBar = () => {
 
 
   const dispalyAlert = () => {
-    alert('EmailUs:- mailto:bookmystay@gmail.com ContactUs:- 9638527410')
+    alert(`EmailUs:- bookmystay@gmail.com    ContactUs:- 9638527410`)
   }
 
   const feedBackForm = () => {
