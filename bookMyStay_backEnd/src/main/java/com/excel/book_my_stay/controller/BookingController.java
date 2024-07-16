@@ -2,7 +2,7 @@ package com.excel.book_my_stay.controller;
 
 import static com.excel.book_my_stay.constant.BookMyStayConstant.BOOKING_CANCEL_MESSAGE;
 import static com.excel.book_my_stay.constant.BookMyStayConstant.BOOKING_SAVED_MESSAGE;
-import static com.excel.book_my_stay.constant.BookMyStayConstant.BOOKING_DEATILS_FETCH;
+import static com.excel.book_my_stay.constant.BookMyStayConstant.BOOKING_DETAILS_FETCH;
 
 import java.util.List;
 
@@ -53,6 +53,6 @@ public class BookingController {
 		public ResponseEntity<CommonResponse<List<BookingDto>>> getBookingDetails(@PathVariable Integer customerId){
 			List<BookingDto> booking = bookingService.fetchBookingDetails(customerId);
 			return ResponseEntity.status(HttpStatus.OK).body(CommonResponse.<List<BookingDto>>builder()
-					.data(booking).message(BOOKING_DEATILS_FETCH).build());
+					.data(booking).message(BOOKING_DETAILS_FETCH).build());
 		}
 }
