@@ -1,6 +1,6 @@
 package com.excel.book_my_stay.controller;
 
-import static com.excel.book_my_stay.constant.BookMyStayConstant.ADDRESS_DETAILS_SAVED_MESSSAGE;
+import static com.excel.book_my_stay.constant.BookMyStayConstant.ADDRESS_DETAILS_SAVED_MESSAGE;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +30,6 @@ public class AddressController {
 		public ResponseEntity<CommonResponse<String>> postAddress(@RequestBody AddressDto dto) {
 			String addressId = addressService.addAddress(dto);
 			return ResponseEntity.status(HttpStatus.CREATED)
-					.body(CommonResponse.<String>builder().data(addressId).message(ADDRESS_DETAILS_SAVED_MESSSAGE).build());
+					.body(CommonResponse.<String>builder().data(addressId).message(ADDRESS_DETAILS_SAVED_MESSAGE).build());
 		}
 }
